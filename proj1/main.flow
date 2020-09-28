@@ -1,7 +1,7 @@
 config:
   retries: 3
   retry.backoff: 30000
-  run_date: yesterday
+  #run_date: yesterday
 
 nodes:
 - name: job-a

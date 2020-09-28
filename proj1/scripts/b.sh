@@ -1,5 +1,8 @@
 #!/bin/bash
 
-echo "b.sh ${1}"
+run_date=$1
+if [ "${1}" = "yesterday" ];then
+    run_date=`date -d "-1 day" +%Y-%m-%d`
+fi
 
-env
+echo "a.sh ${1}"
