@@ -1,0 +1,15 @@
+nodes:
+- name: job-a
+  type: command
+  config: 
+    retries: 3
+    retry.backoff: 30000
+    command: /bin/bash ./scripts/a.sh
+- name: job-b
+  type: command
+  config:
+    retries: 3
+    retry.backoff: 30000
+    command: /bin/bash ./scripts/b.sh
+  dependsOn:
+  - job-a
