@@ -1,15 +1,17 @@
+config:
+  retries: 3
+  retry.backoff: 30000
+  run_date: yesterday
+
 nodes:
 - name: job-a
   type: command
   config: 
-    retries: 3
-    retry.backoff: 30000
-    command: /bin/bash ./scripts/a.sh
+    xx: hello
+    command: ${azkaban.shell} ./scripts/a.sh ${run_date} ${xx}
 - name: job-b
   type: command
   config:
-    retries: 3
-    retry.backoff: 30000
-    command: /bin/bash ./scripts/b.sh
+    command: ${azkaban.shell} ./scripts/b.sh ${run_date}
   dependsOn:
   - job-a
